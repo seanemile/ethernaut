@@ -1,0 +1,759 @@
+{
+  // Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+  // "Print to console": {
+  // 	"scope": "javascript,typescript",
+  // 	"prefix": "log",
+  // 	"body": [
+  // 		"console.log('$1');",
+  // 		"$2"
+  // 	],
+  // 	"description": "Log output to console"
+  // }
+  "Set block.timestamp": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.warp",
+    "body": [
+      "vm.warp(${1:uint256});"
+    ]
+  },
+  "Set block.number": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.roll",
+    "body": [
+      "vm.roll(${1:uint256});"
+    ]
+  },
+  "Set block.basefee": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.fee",
+    "body": [
+      "vm.fee(${1:uint256});"
+    ]
+  },
+  "Set block.difficulty": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.difficulty",
+    "body": [
+      "vm.difficulty(${1:uint256});"
+    ]
+  },
+  "Set block.chainid": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.chainId",
+    "body": [
+      "vm.chainId(${1:uint256});"
+    ]
+  },
+  "Loads a storage slot from an address": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.load",
+    "body": [
+      "vm.load(${1:address}, ${2:bytes32 slot});"
+    ]
+  },
+  "Stores a value to an address' storage slot": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.store",
+    "body": [
+      "vm.store(${1:address}, ${2:bytes32 slot},${3:bytes32 value});"
+    ]
+  },
+  "Signs data": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.sign",
+    "body": [
+      "vm.sign(${1:uint256 privateKey},${2:bytes32 digest} )"
+    ],
+    "description": "Returns (uint8 v, bytes32 r, bytes32 s);"
+  },
+  "Computes address for a given private key": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.addr",
+    "body": [
+      "vm.roll(${1:uint256 privateKey});"
+    ]
+  },
+  "Derive a private key from a provided mnemonic string,": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.deriveKey",
+    "body": [
+      "vm.deriveKey(${1:string},${2:uint32},)"
+    ],
+    "description": " Derive a private key from a provided mnemonic string, or mnemonic file path, at the derivation path m/44'/60'/0'/0/{index}."
+  },
+  "Gets the nonce of an account": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.getNonce",
+    "body": [
+      "vm.getNonce(${1:address account});"
+    ]
+  },
+  "Sets the nonce of an account": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.setNonce",
+    "body": [
+      "vm.setNonce(${1:address account}, ${2:uint64 nonce});"
+    ],
+    "description": "The new nonce must be higher than the current nonce of the account"
+  },
+  "Performs a foreign function call via terminal": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.ffi",
+    "body": [
+      "vm.ffi(${1:string[]});"
+    ],
+    "description": "Performs a foreign function call via terminal"
+  },
+  "Set environment variables, (name, value)": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.setEnv",
+    "body": [
+      "vm.setEnv(${1:string},${2:string});"
+    ]
+  },
+  "Read environment variables, (name) => (value)": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.env",
+    "body": [
+      "vm.env${1:type}(${2:string});"
+    ],
+    "description": "Type can be: Bool, Uint, Int, Address, Bytes32, String, Bytes"
+  },
+  "Read environment variables as arrays, (name, delim) => (value[])": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.env",
+    "body": [
+      "vm.env${1:type}(${2:string},${3:string});"
+    ],
+    "description": "Type can be: Bool, Uint, Int, Address, Bytes32, String, Bytes retuns type of value"
+  },
+  "Read environment variables with default value, (name, value) => (value)": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.envOr",
+    "body": [
+      "vm.envOr(${1:string},${2:<type>});"
+    ]
+  },
+  "Read environment variables as arrays with default value, (name, value[]) => (value[])": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.envOr",
+    "body": [
+      "vm.envOr(${1:string},${2:<type>}[])"
+    ]
+  },
+  "Convert Solidity types to strings": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.toString",
+    "body": [
+      "vm.toString(${1:<type>});"
+    ]
+  },
+  "Sets the *next* call's msg.sender to be the input address": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.prank",
+    "body": [
+      "vm.prank(${1:address});"
+    ]
+  },
+  "Sets all subsequent calls' msg.sender to be the input address untill 'stopPrank' is called": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.startPrank",
+    "body": [
+      "vm.startPrank(${1:address});"
+    ]
+  },
+  "Sets the *next* call's msg.sender to be the input address and the tx.origin to be the second input": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.prank",
+    "body": [
+      "vm.prank(${1:address sender},${2:address origin});"
+    ]
+  },
+  "Sets all subsequent calls' msg.sender to be the input address until `stopPrank` is called, and the tx.origin to be the second input": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.startPrank",
+    "body": [
+      "vm.startPrank(${1:address},${2:address});"
+    ]
+  },
+  "Resets subsequent calls' msg.sender to be `address(this)`": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.stopPrank",
+    "body": [
+      "vm.stopPrank()"
+    ]
+  },
+  "Sets an address' balance": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.deal",
+    "body": [
+      "vm.deal(${1:address who},${2:uint256 newBalance});"
+    ]
+  },
+  "Sets an address' code": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.etch",
+    "body": [
+      "vm.etch(${1:address who},${2:bytes code});"
+    ]
+  },
+  "Expects an error on next call": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.expectRevert",
+    "body": [
+      "vm.expectRevert()",
+      "vm.expectRevert(bytes4 message)",
+      "vm.expectRevert(bytes calldata message)"
+    ],
+    "description": "Alternative signatures are `vm.expectRevert(bytes)`, `vm.expectRevert(bytes4)`"
+  },
+  "Record all storage reads and writes": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.record",
+    "body": [
+      "vm.record()"
+    ]
+  },
+  "Gets all accessed reads and write slot from a recording session, for a given address": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.accesses",
+    "body": [
+      "vm.accesses(${1:address});"
+    ],
+    "description": "function accesses(address) external returns ( bytes32[] memory reads, bytes32[] memory writes);"
+  },
+  "Record all the transaction logs": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.recordLogs",
+    "body": [
+      "vm.recordLogs()"
+    ]
+  },
+  "Gets all the recorded logs": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.getRecordedLogs",
+    "body": [
+      "vm.getRecordedLogs()"
+    ]
+  },
+  "Checks supplied address against emitting contract.": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.expectEmit",
+    "body": [
+      "vm.expectEmit(${1:bool},${2:bool},${3:bool},${4:bool});"
+    ]
+  },
+  "Mocks a call to an address, returning specified data.": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.mockCall",
+    "body": [
+      "vm.mockCall(${1:address where},${2:bytes calldta data},${3:bytes calldata retdata});",
+      "vm.mockCall(${1:address where},${2:uint256 value},${3:bytes calldta data},${4:bytes calldata retdata});"
+    ]
+  },
+  "Clears all mocked calls": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.clearMockedCalls",
+    "body": [
+      "vm.clearMockedCalls()"
+    ]
+  },
+  "Expect a call to an address with the specified calldata.": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.expectCall",
+    "body": [
+      "vm.expectCall(${1:address},${2:bytes});"
+    ]
+  },
+  "Calldata can either be strict or a partial match": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.expectCall",
+    "body": [
+      "vm.expectCall(${1:address},${2:bytes},${3:bool});"
+    ]
+  },
+  "Gets the _creation_ bytecode from an artifact file. Takes in the relative path to the json file": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.getCode",
+    "body": [
+      "vm.getCode(${1:string});"
+    ]
+  },
+  "Gets the _deployed_ bytecode from an artifact file. Takes in the relative path to the json file": {
+    "prefix": "vm.getDeployedCode",
+    "scope": "solidity,.sol",
+    "body": [
+      "vm.getDeployedCode(${1:string});"
+    ]
+  },
+  "Label an address in test traces": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.label",
+    "body": [
+      "vm.label(${1:address},${2:string});"
+    ]
+  },
+  "When fuzzing, generate new inputs if conditional not met": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.assume",
+    "body": [
+      "vm.assume(${1:bool});"
+    ]
+  },
+  "Set block.coinbase (who)": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.coinbase",
+    "body": [
+      "vm.coinbase(${1:address});"
+    ]
+  },
+  "Using the address that calls the test contract or the address provided": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.broadcast",
+    "body": [
+      "vm.broadcast()",
+      "vm.broadcast(${address who})",
+      "vm.broadcast(${uint256 privateKey})",
+    ]
+  },
+  "Stops collecting onchain transactions": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.stopBroadcast",
+    "body": [
+      "vm.stopBroadcast()"
+    ]
+  },
+  "Reads the entire content of file to string, (path) => (data)": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.readFile",
+    "body": [
+      "vm.readFile(${1:string});"
+    ]
+  },
+  "Get the path of the current project": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.projectPath",
+    "body": [
+      "vm.projectPath(${1:string});"
+    ]
+  },
+  "Reads next line of file to string, (path) => (line)": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.readLine",
+    "body": [
+      "vm.readLine(${1:string});"
+    ]
+  },
+  "Writes data to file, creating a file if it does not exist, and entirely replacing its contents if it does.": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.writeFile",
+    "body": [
+      "vm.writeFile(${1:string},${2:string});"
+    ]
+  },
+  "Writes line to file, creating a file if it does not exist.": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.writeLine",
+    "body": [
+      "vm.writeLine(${1:string},${2:string});"
+    ]
+  },
+  "Closes file for reading, resetting the offset and allowing to read it from beginning with readLine.": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.closeFile",
+    "body": [
+      "vm.closeFile(${1:string});"
+    ]
+  },
+  "Removes file. This cheatcode will revert in the following situations, but is not limited to just these cases:": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.removeFile",
+    "body": [
+      "vm.removeFile(${1:string});"
+    ]
+  },
+  "Return the value(s) that correspond to 'key'": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.parseJson",
+    "body": [
+      "vm.parseJson(${1:string},${2:string});"
+    ]
+  },
+  "Return the entire json file": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.parseJson",
+    "body": [
+      "vm.parseJson(${1:string});"
+    ]
+  },
+  "Snapshot the current state of the evm.": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.snapshot",
+    "body": [
+      "vm.snapshot()"
+    ]
+  },
+  "Revert the state of the evm to a previous snapshot": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.revertTo",
+    "body": [
+      "vm.revertTo(${1:uint256});"
+    ]
+  },
+  "Creates a new fork with the given endpoint and block,": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.createFork",
+    "body": [
+      "vm.createFork(${1:string},${2:uint256 block});",
+      "vm.createFork(${1:string});"
+    ]
+  },
+  "Creates _and_ also selects a new fork with the given endpoint and block,": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.createSelectFork",
+    "body": [
+      "vm.createSelectFork(${1:string},${2:uint256});"
+    ]
+  },
+  "Creates _and_ also selects a new fork with the given endpoint and the _latest_ block,": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.createSelectFork",
+    "body": [
+      "vm.createSelectFork(${1:string});"
+    ]
+  },
+  "Takes a fork identifier created by `createFork` and sets the corresponding forked state as active.": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.selectFork",
+    "body": [
+      "vm.selectFork(${1:uint256});"
+    ]
+  },
+  "Returns the currently active fork Reverts if no fork is currently active": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.activeFork",
+    "body": [
+      "vm.activeFork()"
+    ]
+  },
+  "Updates the currently active fork to given block number This is similar to `roll` but for the currently active fork,": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.rollFork",
+    "body": [
+      "vm.rollFork(${1:uint256 blockNumber});"
+    ]
+  },
+  "Updates the given fork to given block number": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.rollFork",
+    "body": [
+      "vm.rollFork(${1:uint256 forkId},${2:uint256 blockNumber});"
+    ]
+  },
+  "Fetches the given transaction from the active fork and executes it on the current state": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.transact",
+    "body": [
+      "vm.transact(${1:bytes32});"
+    ]
+  },
+  "Fetches the given transaction from the given fork and executes it on the current state": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.transact",
+    "body": [
+      "vm.transact(${1:uint256},${2:bytes32});"
+    ]
+  },
+  "Marks that the account(s) should use persistent storage across fork swaps in a multifork setup, meaning, changes made to the state": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.makePersistent",
+    "body": [
+      "vm.makePersistent(${1:address});"
+    ]
+  },
+  "Revokes persistent status from the address, previously added via `makePersistent`": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.revokePersistent",
+    "body": [
+      "vm.revokePersistent(${1:address});"
+    ]
+  },
+  "Returns true if the account is marked as persistent": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.isPersistent",
+    "body": [
+      "vm.isPersistent(${1:address});"
+    ]
+  },
+  " Returns the RPC url for the given alias": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.rpcUrl",
+    "body": [
+      "vm.rpcUrl(${1:string});"
+    ]
+  },
+  " Returns all rpc urls and their aliases `[alias, url][]`": {
+    "scope": "solidity,.sol",
+    "prefix": "vm.rpcUrls",
+    "body": [
+      "vm.rpcUrls();"
+    ]
+  },
+  "Emit a log event": {
+    "scope": "solidity,.sol",
+    "prefix": "std.log",
+    "body": [
+      "log_${1:type}(${2:type});"
+    ],
+    "description": ""
+  },
+  "Emit a log array": {
+    "scope": "solidity,.sol",
+    "prefix": "std.log",
+    "body": [
+      "log_array(${1:uint256/int256[]});"
+    ],
+  },
+  "Emit a named log array": {
+    "scope": "solidity,.sol",
+    "prefix": "std.log",
+    "body": [
+      "log_named_array(${1:string},${2:uint256/int256[]});"
+    ],
+  },
+  "Emit a named log ": {
+    "scope": "solidity,.sol",
+    "prefix": "std.log",
+    "body": [
+      "log_named_{1:type}(${2:string},${3:<type>});"
+    ],
+  },
+  "Assert the `condition` is true": {
+    "scope": "solidity,.sol",
+    "prefix": "std.assertTrue",
+    "body": [
+      "assertTrue(${1:bool condition});"
+    ],
+  },
+  "Assert the 'condition' is false": {
+    "scope": "solidity,.sol",
+    "prefix": "std.assertFalse",
+    "body": [
+      "assertFalse(${1:bool condition});"
+    ],
+  },
+  "Fail the test with the given message": {
+    "scope": "solidity,.sol",
+    "prefix": "std.fail",
+    "body": [
+      "fail(${1:string message});"
+    ],
+  },
+  " Assert `a` is equal to `b`": {
+    "scope": "solidity,.sol",
+    "prefix": "std.assertEq",
+    "body": [
+      "assertEq(${1:<type> a},${2:<type> b});"
+    ],
+  },
+  " Assert absolute value of `a` is approximately equal to `b`": {
+    "scope": "solidity,.sol",
+    "prefix": "std.assertApproxEqAbs",
+    "body": [
+      "assertApproxEqAbs(${1:uint256 a},${2:uint256 b},${3:uint256 maxDelta});"
+    ],
+  },
+  " Assert relative value of `a` is approximately equal to `b`": {
+    "scope": "solidity,.sol",
+    "prefix": "std.assertApproxEqRel",
+    "body": [
+      "assertApproxEqRel(${1:uint256 a},${2:uint256 b},${3:uint256 maxDelta});"
+    ],
+  },
+  "Assert  `a` is greater than `b`": {
+    "scope": "solidity,.sol",
+    "prefix": "std.assertGt",
+    "body": [
+      "assertGt(${1:<type> a},${2:<type> b});"
+    ],
+    "description": "alternative signature with decimal places 'assertGtDecimal(int256 a, int256 b, uint256 decimals)'"
+  },
+  "Assert  `a` is less than `b`": {
+    "scope": "solidity,.sol",
+    "prefix": "std.assertLt",
+    "body": [
+      "assertLt(${1:<type> a},${2:<type> b});"
+    ],
+    "description": "alternative signature with decimal places 'assertLtDecimal(int256 a, int256 b, uint256 decimals)'"
+  },
+  "Assert  `a` is less than or equal to `b`": {
+    "scope": "solidity,.sol",
+    "prefix": "std.assertLe",
+    "body": [
+      "assertLe(${1:<type> a},${2:<type> b});"
+    ],
+    "description": "alternative signature with decimal places 'assertLeDecimal(int256 a, int256 b, uint256 decimals)'"
+  },
+  "Std set block timestamp": {
+    "scope": "solidity,.sol",
+    "prefix": "std.skip",
+    "body": [
+      "skip(${1:uint256 time});"
+    ],
+  },
+  "Std set block timestamp back": {
+    "scope": "solidity,.sol",
+    "prefix": "std.rewind",
+    "body": [
+      "rewind(${1:uint256 time});"
+    ],
+  },
+  "Std set the message sender": {
+    "scope": "solidity,.sol",
+    "prefix": "std.hoax",
+    "body": [
+      "hoax(${1:address who});",
+      "hoax(${1:address who}, ${2:uint256 give});",
+      "hoax(${1:address who}, ${2:address origin});",
+    ],
+  },
+  "std start hoax": {
+    "scope": "solidity,.sol",
+    "prefix": "std.startHoax",
+    "body": [
+      "startHoax(${1:address who});",
+      "startHoax(${1:address who}, ${2:uint256 give});",
+      "startHoax(${1:address who}, ${2:address origin});",
+    ],
+  },
+  "Std deploy code": {
+    "scope": "solidity,.sol",
+    "prefix": "std.deployCode",
+    "body": [
+      "deployCode(${1:string what});",
+      "deployCode(${1:string what}, ${2:bytes args});",
+      "deployCode(${1:string what}, ${2:uint256 val});",
+      "deployCode(${1:string what}, ${2:bytes args}, ${3:uint256 val});",
+    ],
+  },
+  "Std deal": {
+    "scope": "solidity,.sol",
+    "prefix": "std.deal",
+    "body": [
+      "deal(${1:address to}, ${2:uint256 give});",
+      "deal(${1:address token}, ${2:address to}, ${3:uint256 give});",
+      "deal(${1:address token}, ${2:address to}, ${3:uint256 give}, ${4:bool adjust});",
+    ],
+  },
+  "std bound": {
+    "scope": "solidity,.sol",
+    "prefix": "std.bound",
+    "body": [
+      "bound(${1:uint256 x}, ${2:uint256 min}, ${3:uint256 max});"
+    ],
+  },
+  "std Change prank": {
+    "scope": "solidity,.sol",
+    "prefix": "std.changePrank",
+    "body": [
+      "changePrank(${1:address who});"
+    ],
+  },
+  "std maker address": {
+    "scope": "solidity,.sol",
+    "prefix": "std.makeAddr",
+    "body": [
+      "makeAddr(${1:string name});"
+    ],
+  },
+  "std maker address and key": {
+    "scope": "solidity,.sol",
+    "prefix": "std.makeAddrAndKey",
+    "body": [
+      "makeAddrAndKey(${1:string name});"
+    ],
+  },
+  "Assertion errors": {
+    "scope": "solidity,.sol",
+    "prefix": "stdError.assertionError",
+    "body": [
+      "stdError.assertionError;"
+    ]
+  },
+  "arithmentic errors": {
+    "scope": "solidity,.sol",
+    "prefix": "stdError.arithmeticError",
+    "body": [
+      "stdError.arithmeticError;"
+    ]
+  },
+  "Division error": {
+    "scope": "solidity,.sol",
+    "prefix": "stdError.divisionError",
+    "body": [
+      "stdError.divisionError;"
+    ]
+  },
+  "enum conversion error": {
+    "scope": "solidity,.sol",
+    "prefix": "stdError.enumConversionError",
+    "body": [
+      "stdError.enumConversionError;"
+    ]
+  },
+  "encode storage error": {
+    "scope": "solidity,.sol",
+    "prefix": "stdError.encodeStorageError",
+    "body": [
+      "stdError.encodeStorageError;"
+    ]
+  },
+  "pop error": {
+    "scope": "solidity,.sol",
+    "prefix": "stdError.popError",
+    "body": [
+      "stdError.popError;"
+    ]
+  },
+  "index out of bounds error": {
+    "scope": "solidity,.sol",
+    "prefix": "stdError.indexOOBError",
+    "body": [
+      "stdError.indexOOBError;"
+    ]
+  },
+  "memory overflow error": {
+    "scope": "solidity,.sol",
+    "prefix": "stdError.memOverflowError",
+    "body": [
+      "stdError.memOverflowError;"
+    ]
+  },
+  "zero variable error": {
+    "scope": "solidity,.sol",
+    "prefix": "stdError.zeroVarError",
+    "body": [
+      "stdError.zeroVarError;"
+    ]
+  },
+  "Std Storage": {
+    "scope": "solidity,.sol",
+    "prefix": "stdstore",
+    "body": [
+      "stdstore",
+      "    .target(${1:address target})",
+      "    .sig(${2:string sig})",
+      "    .with_key(${3:address key})",
+      "    .depth(${4:uint256 depth})",
+      "    .checked_write(${5:uint256 val});",
+      "    .find();",
+      "    .read_${6:type}();",
+    ]
+  },
+}
