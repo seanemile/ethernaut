@@ -13,7 +13,7 @@ contract FallbackTest is Test {
     address public owner;
     address public attacker;
     uint256 public mainnet;
-    string public MAINNET_RPC_URL = vm.envString("MAINNET_RPC_UL");
+    string public MAINNET_RPC_URL = vm.envString("MAINNET_RPC_URL");
 
     function setUp() public {
         mainnet = vm.createFork(MAINNET_RPC_URL);
