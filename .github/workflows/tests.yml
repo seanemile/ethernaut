@@ -3,24 +3,24 @@ name: Tests
 on: [push, pull_request]
 
 jobs:
-  tests:
+  check:
+    name: Foundry project
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
 
       - name: Install Foundry
-        uses: onbjerg/foundry-toolchain@v1
+        uses: foundry-rs/foundry-toolchain@v1
         with:
           version: nightly
 
-      - name: Check formatting
-        run: forge fmt --check
-
-      - name: Install dependencies
-        run: forge install
+      -name: Check Gas-snapshot
+       run: forge snapshot --check
 
       - name: Run tests
-        run: forge test
+        run: forge test -vvv
         env:
           MAINNET_RPC_URL: ${{ secrets.MAINNET_RPC_URL }}
           # Change profile to prod. when deploying to production.
