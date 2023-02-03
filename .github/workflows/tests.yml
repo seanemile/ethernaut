@@ -16,8 +16,8 @@ jobs:
         with:
           version: nightly
 
-      -name: Check Gas-snapshot
-       run: forge snapshot --check
+      - name: Check Gas-snapshot
+        run: forge snapshot --check
 
       - name: Run tests
         run: forge test -vvv
