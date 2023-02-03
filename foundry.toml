@@ -2,7 +2,7 @@
 [profile.prod]
 [profile.default]
 # The compiler version
-solc-version = "0.8.18"
+solc-version = "0.8.17"
 # The source directory
 src = 'src'
 # The test directory
