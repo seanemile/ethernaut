@@ -2,7 +2,7 @@
 [profile.prod]
 [profile.default]
 # The compiler version
-solc-version = "0.8.17"
+# solc-version = "0.8.17"
 # The source directory
 src = 'src'
 # The test directory
@@ -52,7 +52,7 @@ verbosity = 5
 # A list of ignored solc error codes
 ignored_error_codes = [1878, 5574]
 # Configures the permissions of cheat codes that touch the file system
-fs_permissions = [{ access = "read-write", path = "./"}]
+fs_permissions = [{ access = "read-write", path = "./out"}]
 # Whether to emit additional build info files
 build_info = false
 # Whether or not to enable `vm.ffi`
