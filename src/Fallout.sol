@@ -1,11 +1,9 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.6.0;
+// pragma solidity ^0.6.0;
 
 import "./lib/SafeMath.sol";
-/// @title A title that should describe the contract/interface
-/// @author The name of the author
-/// @notice Explain to an end user what this does
-/// @dev Explain to a developer any extra details
+
+/// @title Fallout Ethernaout challange
 
 contract Fallout {
     using SafeMath for uint256;
@@ -39,5 +37,9 @@ contract Fallout {
 
     function allocatorBalance(address allocator) public view returns (uint256) {
         return allocations[allocator];
+    }
+
+    receive() external payable {
+        allocations[msg.sender] = allocations[msg.sender].add(msg.value);
     }
 }
