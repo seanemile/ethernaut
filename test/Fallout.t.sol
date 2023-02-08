@@ -33,7 +33,6 @@ contract FalloutTest is Test {
         vm.etch(address(fallout), code);
         (bool success, ) = payable(address(fallout)).call{value: 1 ether}("");
         require(success, "Failled to transfer ether to fallout");
-        console.logUint(address(fallout).balance);
         assertEq(address(fallout).code, code);
     }
 
@@ -43,12 +42,6 @@ contract FalloutTest is Test {
         fallout.Fal1out();
         fallout.collectAllocations();
         console.logUint(address(fallout).balance);
-        // assertEq(fallout.allocatorBalance(owner), address(fallout).balance);
-        /// bytes memory b = fallout.code;
-        // console.logBytes(b);
-        // (bool success, ) = payable(address(fallout)).call{value: 0.0001 ether}(
-        //     ""
-        // );
-        // require(success, "failed to call to send ether");
+        assertEq(address(fallout).balance, 0);
     }
 }
