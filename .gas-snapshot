@@ -1,2 +1,4 @@
+CoinFlipTest:testFlip() (gas: 57172)
 FallbackTest:testExploit() (gas: 3170)
 FalloutTest:testFallout() (gas: 46455)
+TelephoneTest:testChangeOwner() (gas: 20065)
